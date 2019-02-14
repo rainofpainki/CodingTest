@@ -27,10 +27,14 @@ def is_prime_num(num):
 if __name__ == "__main__":
     print("N을 입력하시면 2부터 N 까지의 모든 소수의 합을 구합니다.")
     # n 의 값
-    print("N의 값을 입력하세요 (N >= 2 and 1,000,000 >= N) : ", end="")
-    n = int(input())
-    if n <= 2 or n > 1000000:
-        exit("N의 값이 범위를 초과하였습니다.")
+    n = None
+    while n is None:
+        print("N의 값을 입력하세요 (N >= 2 and 1,000,000 >= N) : ", end="")
+        n = int(input())
+        if n <= 2 or n > 1000000:
+            n = None
+            print("N의 값이 범위를 초과하였습니다.")
+
     prime_num = []
     for i in range(2, n+1):
         res = is_prime_num(i)
